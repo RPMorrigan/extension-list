@@ -1,8 +1,9 @@
 // Button
-function Button({ usrLabel }) {
+
+const Button = () => { 
     return (
         <>
-            <button>{ usrLabel }</button>
+            <button onClick={setHide(true)}>Remove</button>
         </>
     )
 };

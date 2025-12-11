@@ -1,15 +1,14 @@
 // components/Card.jsx
-import React from 'react';
-import Toggle from '../components/Toggle.jsx';
-import Button from '../components/Button.jsx';
+import Toggle from './Toggle.jsx';
+import Button from './Button.jsx';
 
 function Card({ item }) {
-    const { id, logo, name, description, isActive } = item;
+    const { id, logo, name, description } = item;
 
     return (
-        <div className={"card" + id (isActive ? 'active' : 'inactive')} >
+        <div className={`card + ${id}}`}>
             <div className='card-top'>
-                <img src={ logo } />
+                <img src={logo} alt="card logo" />
                 <h2>{ name }</h2>
                 <p>{ description }</p>
             </div>

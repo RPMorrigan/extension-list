@@ -1,10 +1,12 @@
 :root {
   --bitterBlue: #1F2535;
 }
+
 * {
   color: white;
   font-family: sans-serif;
 }
+
 body {
   background: #091337;
 }
@@ -34,7 +36,7 @@ nav {
   padding: 0;
 }
 
-h1{
+h1 {
   text-align: left;
   width: 100%;
   margin-left: 0;
