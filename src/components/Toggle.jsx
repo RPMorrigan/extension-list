@@ -1,19 +1,13 @@
-import { useState } from 'react';
+// Toggle.jsx
+import { Component } from "react";
+import { ToggleSlider }  from "react-toggle-slider";
 
-const Toggle = () => {
-    const [checked, setChecked] = useState(false);
-    const handleChange = (nextChecked) => {
-        setChecked(nextChecked)
-    }
+function App() {
     return (
         <>
-            <Switch
-                onChange={handleChange}
-                checked={checked}
-                className="react-switch"
-            />
+            <ToggleSlider/>
         </>
-    )
-};
+    );
+}
 
-export default Toggle;
+export default remove;

@@ -1,11 +1,13 @@
 // Button
+import React from 'react';
 
-const Button = () => { 
+const Button = ({ usrLabel = 'Remove', onClick, ...rest }) => {
     return (
-        <>
-            <button onClick={setHide(true)}>Remove</button>
-        </>
-    )
+        <button onClick={onClick}
+            {...rest}>
+            {usrLabel}
+        </button>
+    );
 };
 
 export default Button;

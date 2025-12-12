@@ -1,49 +1,43 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import Home from './pages/Home.jsx';
+// src/App.jsx
+
+// (imports in order of appearance)
+// useState hook
+// nav buttons
+// Home element
+// BrowserRouter
+// Styles
+
+import { useState } from 'react';
 import Button from './components/Button.jsx';
-import data from './data.json';
+import Home from './pages/Home.jsx';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
+// App component is going to hold our nav and router.
 function App() {
+  // Holds current value of desired list.
   const [theList, setList] = useState('all');
 
-  const unfiltered = () => {
-    return data;
-  }
-
-  const activeList = data.filter((item) => item.isActive === true);
-  console.log(activeList);
-
-  const inactiveList = data.filter((item) => item.isActive === false);
-  console.log(inactiveList);
-
-  useEffect(() => {
-    if (showCard === 'all') {
-      return unfiltered();
-
-    } else if (setList === 'active') {
-      return {
-        activeList
-        
-      };
-
-    } else if (showCard === 'inactive') {
-      return {inactiveList};
-    }
-  }, [theList]
-);
   return (
     <>
+      {/* Our Router */}
+          <BrowserRouter>
       <nav>
           <h1>Extensions List</h1>
+          {/* Box makes it easier to style. */}
         <div className="button-box">
-          <Button usrLabel={'Active'} className="nav-link" onClick={() => setList('active')} />
-          <Button usrLabel={'Inactive'} className="nav-link" onClick={() => setList('inactive')} />
-          <Button usrLabel={'All'} className="nav-link" onClick={() => setList('all')} />
+          {/* These change 'theList' value so that the 'Home' element will know which list to render */}
+          <Link to="/"><Button usrLabel={'Active'} className="nav-link" onClick={() => setList('active')} /></Link>
+          <Link to="/"><Button usrLabel={'Inactive'} className="nav-link" onClick={() => setList('inactive')} /></Link>
+          <Link to="/"><Button usrLabel={'All'} className="nav-link" onClick={() => setList('all')} /></Link>
         </div>
-      </nav>
-      <Home data={theList} />
+        </nav>
+        {/* TODO: Figure out what this does on the inside */}
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
+          </BrowserRouter>
+      <Home list={theList} />
     </>
   )
 }
