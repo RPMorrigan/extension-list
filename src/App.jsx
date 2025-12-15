@@ -10,7 +10,8 @@
 import { useState } from 'react';
 import Button from './components/Button.jsx';
 import Home from './pages/Home.jsx';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
+
 import './App.css';
 
 // App component is going to hold our nav and router.
@@ -20,24 +21,25 @@ function App() {
 
   return (
     <>
-      {/* Our Router */}
-          <BrowserRouter>
+      <div className="banner">
+        <img src="public/images/logo.svg"/>
+        <h2>Extensions</h2>
+      </div>
       <nav>
           <h1>Extensions List</h1>
           {/* Box makes it easier to style. */}
         <div className="button-box">
           {/* These change 'theList' value so that the 'Home' element will know which list to render */}
-          <Link to="/"><Button usrLabel={'Active'} className="nav-link" onClick={() => setList('active')} /></Link>
-          <Link to="/"><Button usrLabel={'Inactive'} className="nav-link" onClick={() => setList('inactive')} /></Link>
-          <Link to="/"><Button usrLabel={'All'} className="nav-link" onClick={() => setList('all')} /></Link>
+          <Link to="/active"><Button usrLabel={'Active'} className="nav-link" /></Link>
+          <Link to="/inactive"><Button usrLabel={'Inactive'} className="nav-link" /></Link>
+          <Link to="/"><Button usrLabel={'All'} className="nav-link" /></Link>
         </div>
         </nav>
-        {/* TODO: Figure out what this does on the inside */}
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path="/" element={<Home list={theList} />} />
+          <Route path="/active" element={<Home list={'active'} />} />
+          <Route path="/inactive" element={<Home list={'inactive'} />} />
         </Routes>
-          </BrowserRouter>
-      <Home list={theList} />
     </>
   )
 }

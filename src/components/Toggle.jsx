@@ -1,13 +1,12 @@
-// Toggle.jsx
-import { Component } from "react";
-import { ToggleSlider }  from "react-toggle-slider";
+import Switch from 'react-switch';
 
-function App() {
-    return (
-        <>
-            <ToggleSlider/>
-        </>
-    );
-}
+// Controlled Toggle: accepts `checked` and `onChange` props
+const Toggle = ({ checked = false, onChange }) => {
+  return (
+    <span className="toggle-size">
+      <Switch checked={checked} onChange={(nextChecked) => onChange && onChange(nextChecked)} />
+    </span>
+  );
+};
 
-export default remove;
+export default Toggle;
