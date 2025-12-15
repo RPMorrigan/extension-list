@@ -13,21 +13,26 @@ body {
 }
 
 .banner {
-  display: flex;
-  flex-direction: row;
-  place-content: right;
+  margin-left: 12rem;
+  height: 4rem;
+  width: 80%;
+  background: var(--bitterBlue);
+  border: solid thin #6C7079;
+  border-radius: 1rem;
 }
 
 .banner img {
-  z-index: 1;
+  z-index: 0;
+  position: absolute;
+  padding: 0.25rem 0 0.5rem 0.25rem;
 }
 
 .banner h2 {
-  z-index: 2;
-  margin-left: 1rem;
-  align-self: center;
+  position: relative;
+  z-index: 1;
+  margin: 0.55rem 0 0 5rem;
   width: 100%;
-  Border: solid red;
+  font-size: 2rem;
 }
 
 nav {

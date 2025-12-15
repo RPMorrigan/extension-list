@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <div className="banner">
-        <img src="public/images/logo.svg"/>
+        <img src="/images/logo.svg" />
         <h2>Extensions</h2>
       </div>
       <nav>
