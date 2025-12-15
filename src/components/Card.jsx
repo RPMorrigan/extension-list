@@ -9,7 +9,7 @@ function Card({ item, onToggleActive }) {
     const [hidden, setHidden] = useState(false);
     
     // local visual state so the switch can animate before the parent list updates
-    const [localChecked, setLocalChecked] = useState(!!isActive);
+    const [localChecked, setLocalChecked] = useState(isActive);
     const timerRef = useRef(null);
 
     useEffect(() => {

@@ -1,9 +1,10 @@
 // Button
 import React from 'react';
 
-const Button = ({ usrLabel = 'Remove', onClick, ...rest }) => {
+const Button = ({ usrLabel, ...rest }) => {
+    // Do we actually need to keep the on click?
     return (
-        <button onClick={onClick}
+        <button
             {...rest}>
             {usrLabel}
         </button>
