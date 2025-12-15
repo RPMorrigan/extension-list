@@ -13,7 +13,7 @@ function Card({ item, onToggleActive }) {
     const timerRef = useRef(null);
 
     useEffect(() => {
-        setLocalChecked(!!isActive);
+        setLocalChecked(isActive);
     }, [isActive]);
 
     useEffect(() => {
