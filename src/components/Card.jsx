@@ -4,7 +4,7 @@ import Toggle from './Toggle.jsx';
 import Button from './Button.jsx';
 
 // descructure item prop
-function Card({ item, onToggleActive }) {
+function Card({ item, onToggleActive, onRemove }) {
     const { id, logo, name, description, isActive } = item;
     const [hidden, setHidden] = useState(false);
     
