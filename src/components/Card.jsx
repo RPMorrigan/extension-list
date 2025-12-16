@@ -4,14 +4,15 @@ import Toggle from './Toggle.jsx';
 import Button from './Button.jsx';
 
 // descructure item prop
-function Card({ item, onToggleActive, onRemove }) {
+function Card({ item, onToggleActive , onRemove}) {
     const { id, logo, name, description, isActive } = item;
-    const [hidden, setHidden] = useState(false);
+    
     
     // local visual state so the switch can animate before the parent list updates
     const [localChecked, setLocalChecked] = useState(isActive);
     const timerRef = useRef(null);
 
+    // These 2 useEffects help the toggle animate before the card is taken to a different list if user is not in the 'all' list.
     useEffect(() => {
         setLocalChecked(isActive);
     }, [isActive]);
@@ -21,8 +22,6 @@ function Card({ item, onToggleActive, onRemove }) {
             if (timerRef.current) clearTimeout(timerRef.current);
         };
     }, []);
-
-    if (hidden) return null;
 
     return (
 
@@ -42,7 +41,7 @@ function Card({ item, onToggleActive, onRemove }) {
             <div className="card-bottom">
 
                 {/* Adds text to the button and hides locally until refresh */}
-                <Button usrLabel={'Remove'} onClick={() => setHidden(true)} />
+                <Button usrLabel={'Remove'} onClick={() => onRemove?.()} />
                 <Toggle
                     checked={localChecked}
                     onChange={(next) => {

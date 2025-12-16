@@ -7,7 +7,6 @@
 // BrowserRouter
 // Styles
 
-import { useState } from 'react';
 import Button from './components/Button.jsx';
 import Home from './pages/Home.jsx';
 import { Link, Routes, Route } from 'react-router-dom';
@@ -17,13 +16,14 @@ import './App.css';
 // App component is going to hold our nav and router.
 function App() {
   // Holds current value of desired list.
-  const [theList, setList] = useState('all');
+  const theList = 'all';
 
   return (
     <>
       <div className="banner">
         <img src="/images/logo.svg" />
         <h2>Extensions</h2>
+        {/* <DarkMode /> */}
       </div>
       <nav>
           <h1>Extensions List</h1>
