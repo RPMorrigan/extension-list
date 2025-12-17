@@ -15,6 +15,7 @@ body {
 .banner {
   height: 4rem;
   width: 80%;
+  position: relative;
   background: var(--bitterBlue);
   border: solid thin #6C7079;
   border-radius: 1rem;
@@ -33,7 +34,7 @@ body {
   position: relative;
   z-index: 1;
   margin: 0.8rem 0 0 5rem;
-  width: 100%;
+  width: fit-content;
   font-size: 2rem;
 }
 
@@ -213,4 +214,46 @@ img {
 
 .hidden {
   display: none;
+}
+
+.light-mode .banner,
+.light-mode .card,
+body .light-mode,
+.light-mode button
+{
+  background: linear-gradient(white, lightcyan);
+  color: slateblue;
+  border: solid thin cyan;
+}
+
+.light-mode button:hover {
+background: cyan;
+}
+
+.light-mode button:active {
+  background: lemonchiffon;
+  color: slategray;
+}
+
+.light-mode .banner h2 {
+  display: none;
+}
+
+.lModeButton {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  top: 18%;
+  right: 1rem;
+  justify-content: center;
+  height: 2.5rem;
+  width: 3rem;
+  z-index: 0;
+}
+
+.lModeButton img {
+  position: absolute;
+  transform: scale(0.5);
+  z-index: 1;
+  margin: auto;
 }
