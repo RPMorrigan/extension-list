@@ -4,7 +4,7 @@ import Switch from 'react-switch';
 const Toggle = ({ checked = false, onChange }) => {
   return (
     <span className="toggle-size">
-      <Switch checked={checked} onChange={(nextChecked) => onChange && onChange(nextChecked)} />
+      <Switch checkedIcon={false} uncheckedIcon={false} checked={checked} onColor="#EE5F54" onChange={(nextChecked) => onChange && onChange(nextChecked)} />
     </span>
   );
 };
