@@ -7,10 +7,9 @@
 // BrowserRouter
 // Styles
 
-import Button from './components/Button.jsx';
 import Home from './pages/Home.jsx';
 import { useState } from 'react';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
 

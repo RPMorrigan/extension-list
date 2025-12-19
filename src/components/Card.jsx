@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import Toggle from './Toggle.jsx';
 
 // descructure item prop
-function Card({ item, onToggleActive}) {
+function Card({ item, onRemove, onToggleActive}) {
     const { id, logo, name, description, isActive } = item;
     
     
@@ -38,7 +38,7 @@ function Card({ item, onToggleActive}) {
 
             {/* Groups elements */}
             <div className="card-bottom">
-                <button>Remove</button>
+                <button onClick={() => onRemove(id)}>Remove</button>
                 <Toggle
                     checked={localChecked}
                     onChange={(next) => {
