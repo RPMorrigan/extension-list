@@ -7,13 +7,28 @@ import '../App.css';
 // Home owns the items state so we can toggle isActive and re-render lists
 function Home() {
     const [items, setItems] = useState(data);
+    const [currentFilter, setCurrentFilter] = useState('all');
 
     // Each list button needs a function which filters the state of items to include different vesions of the original list.
-    const all = () => setItems(data);
-    const inactive = () => setItems(items.filter((i) => i.isActive === false));
-    const active = () => setItems(items.filter((i) => i.isActive === true));
+    const all = () => setCurrentFilter('all');
+    const inactive = () => setCurrentFilter('inactive');
+    const active = () => setCurrentFilter('active');
 
-    const cardToggle = () => !items.isActive;
+    // Toggle the isActive state for a specific item by id
+    const cardToggle = (itemId, newActiveState) => {
+        setItems(prevItems => 
+            prevItems.map(item => 
+                item.id === itemId ? { ...item, isActive: newActiveState } : item
+            )
+        );
+    };
+
+    // Filter items based on current filter
+    const filteredItems = currentFilter === 'all' 
+        ? items 
+        : currentFilter === 'active' 
+            ? items.filter(i => i.isActive === true)
+            : items.filter(i => i.isActive === false);
 
     return (
         <div className="main-box">
@@ -24,10 +39,11 @@ function Home() {
                 <button onClick={all}>all</button>
             </div>
             <div className="card-container">
-                {items.map((item) =>
+                {filteredItems.map((item) =>
                     <Card
+                        key={item.id}
                         item={item}
-                        onToggleActive={cardToggle}
+                        onToggleActive={(newState) => cardToggle(item.id, newState)}
                     />)}
         </div>
     </div>
