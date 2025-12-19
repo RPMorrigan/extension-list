@@ -83,17 +83,6 @@ p {
   height: fit-content;
 }
 
-.button-box {
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  white-space: nowrap;
-  gap: 0.25rem;
-  height: fit-content;
-  padding: 0;
-  margin: 0;
-}
-
 button {
   display: inline-flex;
   align-items: center;
@@ -186,25 +175,23 @@ img {
 .main-box {
   display: flex;
   flex-direction: column;
+  align-content: space-between;
+  gap: 2rem;
   min-height: calc(100vh - 12rem);
   position: relative;
+  padding: 0;
+  margin: 2rem;
 }
 
-.reset-box {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-}
-
-.reset-button {
-  font-size: 0.5rem;
-  color: grey;
-  background: none;
-  border: none;
-  text-align: bottom;
-  height: 1rem;
-  padding: 0.25rem;
-  margin: 1rem;
+.button-box {
+  display: flex;
+  flex-flow: row;
+  justify-content: right;
+  width: 75vw;
+  gap: 0.25rem;
+  height: fit-content;
+  padding: 0;
+  margin: 0 auto;
 }
 
 .dark-light {

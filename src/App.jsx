@@ -46,20 +46,8 @@ function App() {
             <img src={modeIcon} />
         </button>
       </div>
-      <nav>
-          <h1>Extensions List</h1>
-          {/* Box makes it easier to style. */}
-        <div className="button-box">
-          {/* These change 'theList' value so that the 'Home' element will know which list to render */}
-          <Link to="/active"><Button usrLabel={'Active'} className="nav-link" /></Link>
-          <Link to="/inactive"><Button usrLabel={'Inactive'} className="nav-link" /></Link>
-          <Link to="/"><Button usrLabel={'All'} className="nav-link" /></Link>
-        </div>
-        </nav>
         <Routes>
           <Route path="/" element={<Home list={theList} />} />
-          <Route path="/active" element={<Home list={'active'} />} />
-          <Route path="/inactive" element={<Home list={'inactive'} />} />
         </Routes>
     </div>
   )

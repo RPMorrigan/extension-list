@@ -1,10 +1,9 @@
 // components/Card.jsx
 import { useState, useEffect, useRef } from 'react';
 import Toggle from './Toggle.jsx';
-import Button from './Button.jsx';
 
 // descructure item prop
-function Card({ item, onToggleActive , onRemove}) {
+function Card({ item, onToggleActive}) {
     const { id, logo, name, description, isActive } = item;
     
     
@@ -28,7 +27,7 @@ function Card({ item, onToggleActive , onRemove}) {
         // Adds a card class combined with it's id.
         <div className={`card ${id}`}>
 
-            {/* groups the top elements for easier formatting */}
+            {/* groups the top ele1ents for easier formatting */}
             <div className='card-top'>
                 <img src={logo} alt="card logo" />
                 <div className="card-text">
@@ -39,9 +38,7 @@ function Card({ item, onToggleActive , onRemove}) {
 
             {/* Groups elements */}
             <div className="card-bottom">
-
-                {/* Adds text to the button and hides locally until refresh */}
-                <Button usrLabel={'Remove'} onClick={() => onRemove?.()} />
+                <button>Remove</button>
                 <Toggle
                     checked={localChecked}
                     onChange={(next) => {
